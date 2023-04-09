@@ -1,0 +1,34 @@
+---
+import Banner from "../components/Banner.astro";
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <link
+      rel="preload"
+      href="/CrimsonPro.ttf"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style>
+      @font-face {
+        font-family: "CrimsonPro";
+        src: url(/CrimsonPro.ttf) format("truetype");
+      }
+    </style>
+  </head>
+  <body
+    class="flex flex-col w-full h-full overflow-hidden bg-beige selection:bg-red selection:text-white"
+  >
+    <Banner />
+    <slot />
+  </body>
+</html>
