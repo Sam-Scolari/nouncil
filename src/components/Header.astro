@@ -1,33 +1,35 @@
 ---
 import Button from "./Button.astro";
+import Delegated from "./Delegated.astro";
+import Menu from "./Menu.astro";
+import Nav from "./Nav.astro";
+import Socials from "./Socials.astro";
 ---
 
 <header class="flex p-8 justify-between">
-  <div class="flex items-center gap-8">
-    <img
-      src="/logo.webp"
-      alt="Nouncil Logo"
-      class="w-16 h-16 select-none"
-      draggable={false}
-    />
-    <div>Nouns Delegated</div>
+  <div class="flex items-center gap-12">
+    <a href="/">
+      <img
+        src="/logo.webp"
+        alt="Nouncil Logo"
+        class="w-16 h-16 select-none"
+        draggable={false}
+      />
+    </a>
+    <div class="max-md:hidden">
+      <Delegated />
+    </div>
   </div>
-  <nav class="flex items-center">
-    <ul class="flex gap-8">
-      <li>
-        <a href="https://nouncil.org" class="text-">Governance</a>
-      </li>
-      <li>
-        <a href="https://nouncil.org/about" class="text-blue-500">Tools</a>
-      </li>
-      <li>
-        <a href="https://nouncil.org/faq" class="text-blue-500">Programs</a>
-      </li>
-    </ul>
+  <nav class="relative flex items-center gap-12">
+    <Nav />
+    <div class="max-md:hidden">
+      <Socials />
+    </div>
     <Button
       href="https://nouns.wtf/delegate?to=0xcC2688350d29623E2A0844Cc8885F9050F0f6Ed5"
     >
       Delegate
     </Button>
+    <Menu />
   </nav>
 </header>

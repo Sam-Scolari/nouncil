@@ -1,0 +1,23 @@
+---
+const delegated = [68, 131, 232, 237, 239, 364, 469];
+---
+
+<div class="flex items-center gap-2 font-semibold text-black text-lg">
+  <div
+    class="flex items-center relative"
+    style={{ width: `${delegated.length * 21}px` }}
+  >
+    {
+      delegated.map((noun, index) => (
+        <img
+          src={`https://api.cloudnouns.com/v2/nouns/${noun}`}
+          alt={`Noun ${noun}`}
+          class="absolute rounded-full w-12 h-12 border-4 border-beige select-none"
+          style={{ left: `${index * 16}px` }}
+          draggable={false}
+        />
+      ))
+    }
+  </div>
+  {delegated.length} Delegated
+</div>
