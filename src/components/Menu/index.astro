@@ -1,9 +1,59 @@
-<!-- <div
-  class="fixed top-0 left-0 w-full h-full pointer-events-none backdrop-blur-xl z-50"
+---
+import MenuGroup from "./MenuGroup.astro";
+import MenuGroupItem from "./MenuGroupItem.astro";
+
+const { navigation } = Astro.props;
+---
+
+<script>
+  const menu = document.getElementById("menu") as HTMLDivElement;
+  function open() {
+    menu.classList.remove("pointer-events-none");
+    menu.classList.remove("opacity-0");
+    menu.classList.add("pointer-events-auto");
+    menu.classList.add("opacity-100");
+  }
+
+  function close() {
+    menu.classList.remove("pointer-events-auto");
+    menu.classList.remove("opacity-100");
+    menu.classList.add("pointer-events-none");
+    menu.classList.add("opacity-0");
+  }
+
+  const openButton = document.getElementById("open") as HTMLImageElement;
+  const closeButton = document.getElementById("close") as HTMLImageElement;
+
+  openButton.addEventListener("click", open);
+  closeButton.addEventListener("click", close);
+</script>
+
+<img
+  id="open"
+  src="/icons/menu.svg"
+  alt="Menu icon"
+  class="w-8 hidden max-lg:flex"
+/>
+
+<div
+  id="menu"
+  class="fixed top-0 left-0 w-full h-full pointer-events-none opacity-0 backdrop-blur-xl z-50"
 >
-  <img src="/icons/close.svg" alt="A close icon" class="absolute top-8 right-8 w-8" />
-  <div>
-    <a href=""></a>
-  </div>
-</div> -->
-<img src="/icons/menu.svg" alt="Menu icon" class="w-8 hidden max-lg:flex" />
+  <img
+    id="close"
+    src="/icons/close.svg"
+    alt="A close icon"
+    class="absolute top-8 right-8 w-6"
+  />
+  <ul class="flex flex-col h-full items-center justify-evenly">
+    {
+      navigation.map((group: any) => (
+        <MenuGroup title={group.title}>
+          {group.items.map((item: any) => (
+            <MenuGroupItem href={item.href}>{item.name}</MenuGroupItem>
+          ))}
+        </MenuGroup>
+      ))
+    }
+  </ul>
+</div>
