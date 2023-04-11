@@ -1,0 +1,18 @@
+---
+import NavGroup from "./NavGroup.astro";
+import NavGroupItem from "./NavGroupItem.astro";
+
+const { navigation } = Astro.props;
+---
+
+<ul class="flex gap-8 h-full max-lg:hidden">
+  {
+    navigation.map((group: any) => (
+      <NavGroup title={group.title}>
+        {group.items.map((item: any) => (
+          <NavGroupItem href={item.href}>{item.name}</NavGroupItem>
+        ))}
+      </NavGroup>
+    ))
+  }
+</ul>

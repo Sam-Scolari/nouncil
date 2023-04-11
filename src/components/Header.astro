@@ -1,9 +1,61 @@
 ---
 import Button from "./Button.astro";
 import Delegated from "./Delegated.astro";
-import Menu from "./Menu.astro";
-import Nav from "./Nav.astro";
+import Menu from "./Menu/index.astro";
+import Nav from "./Nav/index.astro";
 import Socials from "./Socials.astro";
+
+const navigation = [
+  {
+    title: "Governance",
+    items: [
+      {
+        name: "Welcome",
+        href: "https://docs.google.com/document/d/1zEdaZL_oF9-bG7h2mimb8PB2DNMFVoVr24OFF5eoeE4/edit",
+      },
+      {
+        name: "Members",
+        href: "https://docs.google.com/spreadsheets/d/1gxXEoxUhHbcRZVSIB3mVbmRp3lfv-clnevIMuqiY2Jo/edit#gid=0",
+      },
+      {
+        name: "Guidelines",
+        href: "https://docs.google.com/document/d/1NZXpxwJcTfjuafqRaSfl8TMJ8uQR2tX_JFSn5WO5nzg/edit",
+      },
+      { name: "Proposal", href: "https://hackmd.io/tm6WjUwmT-6tFyiNtZ55jQ" },
+    ],
+  },
+  {
+    title: "Programs",
+    items: [
+      {
+        name: "Coordinape Rounds",
+        href: "https://docs.google.com/spreadsheets/d/1LNVP0DBLPdoxgRy6Cb0egU7TSaljkheJ0idT_JP6koY/edit#gid=1104529391",
+      },
+      {
+        name: "Grant Guidelines",
+        href: "https://docs.google.com/document/d/1-ILWgan1SweRZxRlT0xkQnebh7K5-z1cCn-50qk7KzY/edit",
+      },
+    ],
+  },
+  {
+    title: "Tools",
+    items: [
+      {
+        name: "Toga Template",
+        href: "https://docs.google.com/document/d/1bhQyEIi56qoyjM4m8nZRrmmm59HPz9mO3RjUOnredRM/edit?usp=sharing",
+      },
+      { name: "Toga Time", href: "https://togatime.cloudnouns.com/" },
+      {
+        name: "Delegated Nouns",
+        href: "https://docs.google.com/document/d/1tmvCRo4HSv4cGU1Z_Y9BOVOJlG0vrAa1BDDb3RGW4YM/edit",
+      },
+      {
+        name: "How to Delegate",
+        href: "https://docs.google.com/document/d/1MDYV56Lmm_qd18O7hQLYD3gTZoISzm0ZpONGbK7Gp-Q/edit",
+      },
+    ],
+  },
+];
 ---
 
 <header class="flex p-8 justify-between">
@@ -21,7 +73,7 @@ import Socials from "./Socials.astro";
     </div>
   </div>
   <nav class="relative flex items-center gap-12">
-    <Nav />
+    <Nav navigation={navigation} />
     <div class="max-md:hidden">
       <Socials />
     </div>
@@ -30,6 +82,6 @@ import Socials from "./Socials.astro";
     >
       Delegate
     </Button>
-    <Menu />
+    <Menu navigation={navigation} />
   </nav>
 </header>

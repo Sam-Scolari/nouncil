@@ -10,22 +10,24 @@ import Layout from "../layouts/Layout.astro";
     <Header />
     <main class="h-full w-full flex flex-col items-center justify-between">
       <div
-        class="flex flex-col gap-4 max-lg:gap-8 h-full items-center justify-center"
+        class="flex flex-col gap-4 max-[500px]:gap-2 max-lg:gap-8 h-full items-center justify-center"
       >
         <h1
-          class="text-[8rem] font-semibold text-black font-crimson-pro max-lg:text-8xl max-md:text-7xl max-[400px]:text-6xl max-[350px]:text-5xl"
+          class="text-[8rem] leading-none font-semibold text-black font-crimson-pro max-lg:text-8xl max-md:text-7xl max-[400px]:text-6xl max-[350px]:text-5xl"
         >
           The Nouncil
         </h1>
         <p
-          class="text-black max-w-5xl max-md:text-lg text-xl text-center px-16 max-sm:px-8 max-sm:text-base"
+          class="text-black max-w-5xl max-md:text-lg text-xl text-center px-16 max-sm:px-8 max-sm:text-base max-[350px]:text-sm"
         >
-          A special council of Nounish BUIDLers & Nounish extension reps working
-          within the framework of NounsDAO to proliferate cc0 and nounish
-          culture.
+          A special council of builders and extension reps working within the
+          framework of <a
+            href="https://nouns.wtf"
+            class="text-red font-semibold">NounsDAO</a
+          > to proliferate CC0 and nounish culture.
         </p>
         <div
-          class="max-md:flex gap-8 max-[500px]:flex-col max-[500px]:items-center hidden mt-4"
+          class="max-md:flex items-center gap-8 max-[500px]:flex-col hidden mt-4"
         >
           <Delegated />
           <Socials />
