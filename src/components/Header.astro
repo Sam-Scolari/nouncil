@@ -5,7 +5,7 @@ import Menu from "./Menu/index.astro";
 import Nav from "./Nav/index.astro";
 import Socials from "./Socials.astro";
 
-const navigation = [
+export const navigation = [
   {
     title: "Governance",
     items: [
@@ -58,7 +58,7 @@ const navigation = [
 ];
 ---
 
-<header class="flex p-8 justify-between">
+<header class="flex w-full p-8 max-sm:p-6 justify-between">
   <div class="flex items-center gap-12">
     <a href="/">
       <img
@@ -73,7 +73,7 @@ const navigation = [
     </div>
   </div>
   <nav class="relative flex items-center gap-12">
-    <Nav navigation={navigation} />
+    <Nav />
     <div class="max-md:hidden">
       <Socials />
     </div>
@@ -82,6 +82,6 @@ const navigation = [
     >
       Delegate
     </Button>
-    <Menu navigation={navigation} />
+    <Menu />
   </nav>
 </header>
